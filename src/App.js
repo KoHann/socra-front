@@ -3,7 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 const getTasksByKeyword = async (keyword = '') => {
-  const endpoint = `http://10.0.1.50:3000/tasks/search/keywords?search=${keyword}`;
+  const endpoint = `/tasks/search/keywords?search=${keyword}`;
   return await fetch(endpoint, { method: "GET" })
   .then((response) => response.json())
   .then((data) => {
@@ -13,7 +13,7 @@ const getTasksByKeyword = async (keyword = '') => {
 };
 
 const createTask = async (task) => {
-  const endpoint = `http://10.0.1.50:3000/task`;
+  const endpoint = `/task`;
   const body = JSON.stringify(task);
   console.log(body);
   return await fetch(endpoint, { method: "POST", body: body, headers:{'content-type': 'application/json'} })
